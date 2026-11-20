@@ -2,20 +2,643 @@
 <html lang="ka">
 <head>
 <meta charset="UTF-8">
-<title>ჩემი Landing Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DEKA-GE | H20 ხის კოჭების წარმოება</title>
+
+<meta name="description" content="DEKA-GE - H20 ტიპის ხის კოჭების წარმოება. ხარისხიანი პროდუქცია სამშენებლო სექტორისთვის.">
+
+<link rel="icon" type="image/png" href="logo.png">
+
 <style>
-body {font-family: Arial; text-align:center; padding:50px; background:#f4f4f4;}
-.container {background:white; padding:40px; border-radius:10px; max-width:600px; margin:auto;}
-button {padding:10px 20px; background:#007bff; color:white; border:none; border-radius:5px;}
+
+/* GENERAL */
+
+:root {
+  --yellow: #f5c400;
+  --black: #191919;
+  --dark: #252525;
+  --gray: #666;
+  --light: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  background: white;
+  color: var(--black);
+}
+
+/* HEADER */
+
+header {
+  background: var(--black);
+  padding: 12px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--yellow);
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  background: white;
+  border-radius: 5px;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  background: #252525;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 17px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #444;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.navbar a:hover {
+  color: var(--yellow);
+}
+
+/* HERO */
+
+.hero {
+  min-height: 520px;
+  background:
+    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
+    url("beams.jpg") center/cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  padding: 70px 9%;
+  color: white;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: var(--yellow);
+}
+
+.hero p {
+  font-size: 19px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  padding: 15px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+/* SECTIONS */
+
+.section {
+  padding: 75px 8%;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.section-title span {
+  color: #c99f00;
+}
+
+/* ABOUT */
+
+.about-text {
+  max-width: 900px;
+  margin: auto;
+  text-align: justify;
+  line-height: 1.9;
+  font-size: 17px;
+  color: #444;
+}
+
+/* FEATURES */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.feature-card {
+  background: var(--light);
+  padding: 30px 22px;
+  border-bottom: 4px solid var(--yellow);
+  border-radius: 5px;
+  transition: 0.25s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+}
+
+.feature-card h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.feature-card p {
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* PRODUCTS */
+
+.products {
+  background: var(--light);
+  max-width: none;
+}
+
+.products-inner {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+  transition: 0.25s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 23px;
+}
+
+.product-info h3 {
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.product-info p {
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+.product-label {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  border-radius: 3px;
+}
+
+/* PRODUCTION */
+
+.production {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+}
+
+.production img {
+  width: 100%;
+  border-radius: 7px;
+}
+
+.production p {
+  color: var(--gray);
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+/* CTA */
+
+.cta {
+  background: var(--black);
+  color: white;
+  text-align: center;
+  padding: 65px 20px;
+  border-top: 5px solid var(--yellow);
+}
+
+.cta h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: #ccc;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+}
+
+.contact p {
+  font-size: 17px;
+  margin: 15px 0;
+  color: #444;
+}
+
+.contact a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.contact a:hover {
+  color: #b18b00;
+}
+
+/* FOOTER */
+
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+  border-top: 3px solid var(--yellow);
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 55px;
+  height: 55px;
+  background: #25d366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 27px;
+  text-decoration: none;
+  z-index: 999;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  header {
+    justify-content: center;
+  }
+
+  .navbar {
+    gap: 17px;
+    padding: 15px 8px;
+    flex-wrap: wrap;
+  }
+
+  .navbar a {
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 430px;
+    padding: 50px 7%;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 55px 6%;
+  }
+
+  .section-title {
+    font-size: 27px;
+  }
+
+  .production {
+    grid-template-columns: 1fr;
+  }
+
+  .cta h2 {
+    font-size: 26px;
+  }
+
+}
+
 </style>
 </head>
+
 <body>
-<div class="container">
-<h1>გამარჯობა 👋</h1>
-<p>ეს არის ჩემი ოფიციალური გვერდი.</p>
-<h3>დაგვიკავშირდით</h3>
-<p>Email: your@email.com</p>
-<p>ტელ: 555 00 00 00</p>
-</div>
+
+<!-- HEADER -->
+
+<header>
+  <img src="logo.png" alt="DEKA-GE Logo" class="logo">
+</header>
+
+<!-- NAVIGATION -->
+
+<nav class="navbar">
+  <a href="#about">ჩვენს შესახებ</a>
+  <a href="#products">პროდუქცია</a>
+  <a href="#production">წარმოება</a>
+  <a href="#contact">კონტაქტი</a>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <h1>
+      DEKA-GE<br>
+      <span>ხის კოჭების წარმოება</span>
+    </h1>
+
+    <p>
+      H20 ტიპის ხის კოჭები თანამედროვე მშენებლობისთვის.
+      ხარისხი, სიზუსტე და საიმედოობა.
+    </p>
+
+    <a href="#products" class="btn">
+      ჩვენი პროდუქცია
+    </a>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+  <h2 class="section-title">
+    ჩვენს <span>შესახებ</span>
+  </h2>
+
+  <p class="about-text">
+    DEKA-GE წარმოადგენს ხის კოჭების მწარმოებელ საწარმოს,
+    რომელიც სპეციალიზებულია H20 ტიპის სამშენებლო კოჭების
+    წარმოებაზე. ჩვენი მიზანია სამშენებლო სექტორს შევთავაზოთ
+    ხარისხიანი, გამძლე და საიმედო პროდუქცია, რომელიც
+    დააკმაყოფილებს თანამედროვე მშენებლობის მოთხოვნებს.
+
+    ჩვენ ორიენტირებული ვართ პროდუქციის ხარისხზე,
+    წარმოების პროცესის გაუმჯობესებასა და მომხმარებელთან
+    გრძელვადიანი თანამშრომლობის განვითარებაზე.
+  </p>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="section">
+
+  <h2 class="section-title">
+    რატომ <span>DEKA-GE?</span>
+  </h2>
+
+  <div class="features">
+
+    <div class="feature-card">
+      <h3>ხარისხი</h3>
+      <p>
+        ხარისხზე ორიენტირებული წარმოება და
+        პროდუქციის კონტროლი.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>გამძლეობა</h3>
+      <p>
+        სამშენებლო სამუშაოებისთვის განკუთვნილი
+        საიმედო ხის კოჭები.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>სანდოობა</h3>
+      <p>
+        მომხმარებელთან გრძელვადიანი
+        თანამშრომლობა.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="section products" id="products">
+
+  <div class="products-inner">
+
+    <h2 class="section-title">
+      ჩვენი <span>პროდუქცია</span>
+    </h2>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+
+        <img src="beams.jpg" alt="DEKA-GE H20 ხის კოჭები">
+
+        <div class="product-info">
+
+          <span class="product-label">H20</span>
+
+          <h3>ხის სამშენებლო კოჭი</h3>
+
+          <p>
+            H20 ტიპის ხის კოჭი ყალიბის სისტემებისა
+            და მონოლითური მშენებლობისთვის.
+          </p>
+
+          <p style="margin-top:15px;">
+            <strong>ზომა:</strong> დაემატება<br>
+            <strong>ტექნიკური მონაცემები:</strong> დაემატება
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <img src="beams.jpg" alt="H20 სამშენებლო კოჭი">
+
+        <div class="product-info">
+
+          <span class="product-label">H20</span>
+
+          <h3>H20 კოჭი — სხვა ზომები</h3>
+
+          <p>
+            პროდუქციის დამატებითი ზომები და
+            ტექნიკური მახასიათებლები დაემატება.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PRODUCTION -->
+
+<section class="section" id="production">
+
+  <h2 class="section-title">
+    ჩვენი <span>წარმოება</span>
+  </h2>
+
+  <div class="production">
+
+    <div>
+      <p>
+        DEKA-GE ორიენტირებულია თანამედროვე საწარმოო
+        პროცესებსა და პროდუქციის ხარისხზე.
+
+        საწარმოს, დანადგარებისა და წარმოების პროცესის
+        ფოტომასალა დაემატება.
+      </p>
+    </div>
+
+    <div>
+      <img src="factory.jpg" alt="DEKA-GE საწარმო">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <h2>გჭირდებათ H20 ხის კოჭები?</h2>
+
+  <p>
+    დაგვიკავშირდით პროდუქციისა და თანამშრომლობის დეტალებისთვის.
+  </p>
+
+  <a href="#contact" class="btn">
+    დაგვიკავშირდით
+  </a>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section contact" id="contact">
+
+  <h2 class="section-title">
+    <span>კონტაქტი</span>
+  </h2>
+
+  <p>📞 ტელეფონი: დაამატეთ ნომერი</p>
+
+  <p>📧 ელფოსტა: დაამატეთ ელფოსტა</p>
+
+  <p>📍 მისამართი: დაამატეთ მისამართი</p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  © 2026 DEKA-GE — ყველა უფლება დაცულია
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/995XXXXXXXXX"
+   class="whatsapp"
+   target="_blank"
+   aria-label="WhatsApp">
+  W
+</a>
+
 </body>
 </html>
